@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto - Minimarket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Agregar Nuevo Producto</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('listar_productos') }}">Productos</a></li>
+        <li><a href="{{ url_for('agregar_producto') }}">Agregar Producto</a></li>
+        <li><a href="#">Ventas</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Agregar Nuevo Producto</h2>
+    <form action="{{ url_for('agregar_producto') }}" method="post">
+        <label for="nom_prcto">Nombre del Producto:</label>
+        <input type="text" id="nom_prcto" name="nom_prcto" required>
+
+        <label for="categoria">Categoría:</label>
+        <input type="text" id="categoria" name="categoria" required>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" step="0.01" required>
+
+        <label for="lote">Lote:</label>
+        <input type="text" id="lote" name="lote" required>
+
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" required>
+
+        <label for="fechaVencimiento">Fecha de Vencimiento:</label>
+        <input type="date" id="fechaVencimiento" name="fechaVencimiento" required>
+
+        <label for="stock">Stock:</label>
+        <input type="number" id="stock" name="stock" required>
+
+        <button type="submit" class="btn">Agregar Producto</button>
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Sistema de Venta - Minimarket. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
