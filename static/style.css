@@ -116,3 +116,8 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+.img-producto {
+    width: 50px;
+    height: auto;
+}

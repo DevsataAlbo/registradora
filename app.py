@@ -20,9 +20,12 @@ def listar_productos():
                 'categoria': 1,
                 'precio': 1,
                 'caracteristicas': 1,
-                'stock': 1
+                'stock': 1,
+                'thumbnailUrl': 1
             }
-        }
+        },
+        {'$skip': 0},
+        {'$limit': 5}
     ]
     productos = list(coleccion.aggregate(pipeline))
     return render_template('listar.html', productos=productos)
