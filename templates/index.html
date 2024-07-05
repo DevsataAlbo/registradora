@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Venta - Minimarket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Venta - Minimarket</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('listar_productos') }}">Productos</a></li>
+        <li><a href="#">Ventas</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Bienvenido a nuestro Minimarket</h2>
+    <p>¡Encuentra los mejores productos al mejor precio!</p>
+
+    <h3>Productos Destacados</h3>
+    <div class="products">
+        <!-- Aquí puedes mostrar productos destacados -->
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Sistema de Venta - Minimarket. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

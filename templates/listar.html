@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Venta - Minimarket</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Sistema de Venta - Minimarket</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('listar_productos') }}">Productos</a></li>
+        <li><a href="#">Ventas</a></li>
+        <li><a href="#">Carrito</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Lista de Productos</h2>
+    {% if productos %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Lote</th>
+                    <th>Marca</th>
+                    <th>Vencimiento</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                    <tr>
+                        <td>{{ producto.nom_prcto }}</td>
+                        <td>{{ producto.categoria }}</td>
+                        <td>${{ producto.precio }}</td>
+                        <td>{{ producto.caracteristicas.lote }}</td>
+                        <td>{{ producto.caracteristicas.marca }}</td>
+                        <td>{{ producto.caracteristicas.fechaVencimiento }}</td>
+                        <td>{{ producto.stock }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay productos disponibles en este momento.</p>
+    {% endif %}
+</div>
+
+<footer>
+    <p>&copy; 2024 Sistema de Venta - Minimarket. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
