@@ -10,6 +10,8 @@ coleccion = db['producto']
 
 @app.route('/listar')
 def listar_productos():
+    skip = int(request.args.get('skip', 0))
+    limit = int(request.args.get('limit', 10))
     pipeline = [
         {
             '$match': {}
@@ -24,11 +26,11 @@ def listar_productos():
                 'thumbnailUrl': 1
             }
         },
-        {'$skip': 0},
-        {'$limit': 5}
+        {'$skip': skip},
+        {'$limit': limit}
     ]
     productos = list(coleccion.aggregate(pipeline))
-    return render_template('listar.html', productos=productos)
+    return render_template('listar.html', productos=productos, skip=skip, limit=limit)
 
 @app.route('/agregar', methods=['GET', 'POST'])
 def agregar_producto():
