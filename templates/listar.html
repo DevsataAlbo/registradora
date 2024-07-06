@@ -36,6 +36,7 @@
                     <th>Marca</th>
                     <th>Vencimiento</th>
                     <th>Stock</th>
+                    <th>Imagen</th>
                 </tr>
             </thead>
             <tbody>
@@ -48,10 +49,13 @@
                         <td>{{ producto.caracteristicas.marca }}</td>
                         <td>{{ producto.caracteristicas.fechaVencimiento }}</td>
                         <td>{{ producto.stock }}</td>
+                        <td><img src="{{ producto.thumbnailUrl }}" alt="Imagen" class="img-producto"></td>
                     </tr>
                 {% endfor %}
+
             </tbody>
         </table>
+        <a href="{{ url_for('listar_productos', skip = skip + limit, limit=limit ) }}">Sig Pagina</a>
     {% else %}
         <p>No hay productos disponibles en este momento.</p>
     {% endif %}
